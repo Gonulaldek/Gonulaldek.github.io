@@ -314,12 +314,12 @@ const portfolioData = {
           en: 'Final-Year Project · 2025–2026'
         },
         description: {
-          tr: 'Tarayıcı tabanlı bir hareket takip prototipi. Webcam akışından vücut pozisyonunu okur, eklem açılarını ölçer ve egzersiz tekrarlarını sayar. MediaPipe Pose ve Canvas üzerinde çalışan, üniversite bitirme projem olarak geliştirdiğim web uygulaması — şu an aktif olarak üzerinde çalışıyorum. Public repo henüz yayımlanmadı.',
-          en: 'A browser-based motion-tracking prototype. It reads body position from a webcam stream, measures joint angles, and counts exercise repetitions. Built on MediaPipe Pose and Canvas as my final-year university project — currently in active development. The public repo has not been published yet.'
+          tr: 'Tarayıcı tabanlı bir hareket takip prototipi. Webcam akışından vücut ve el landmark verilerini okur, eklem açılarını ölçer, egzersiz tekrarlarını sayar ve referans video paneliyle hareket takibini destekler. MediaPipe Pose, MediaPipe Hands, p5.js ve Canvas API kullanılarak geliştirilmiştir.',
+          en: 'A browser-based motion analysis prototype. It reads body and hand landmark data from webcam input, measures joint angles, counts exercise repetitions, and supports movement tracking with a reference video panel. Built with MediaPipe Pose, MediaPipe Hands, p5.js, and the Canvas API.'
         },
-        stack: ['Vanilla JS', 'p5.js', 'MediaPipe', 'Canvas'],
+        stack: ['Vanilla JS', 'p5.js', 'MediaPipe Pose', 'MediaPipe Hands', 'Canvas'],
         links: [
-          { pending: true }
+          { label: { tr: 'GitHub Repo', en: 'GitHub Repo' }, url: 'https://github.com/Gonulaldek/mediapipe-motion-analysis' }
         ],
         preview: 'motion',
         flip: true,
