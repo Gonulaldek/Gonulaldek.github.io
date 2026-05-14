@@ -1,0 +1,68 @@
+/* ============================================================
+   base.css — root variables, reset, typography base,
+   body background, scrollbar, selection
+   ============================================================ */
+
+:root{
+  --bg: #0a0e1a;
+  --bg-1: #0d1322;
+  --bg-2: #131a2d;
+  --panel: #161f36;
+  --line: #22304d;
+  --line-soft: #1a2540;
+  --text: #e8ecf3;
+  --text-dim: #8d99b3;
+  --text-muted: #5a6584;
+  --cyan: #5ce0ff;
+  --cyan-dim: #2b8cb0;
+  --orange: #ff7849;
+  --orange-dim: #b34a2a;
+  --green: #7ee787;
+  --amber: #ffb84d;
+}
+
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+html{ scroll-behavior: smooth; }
+
+body{
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(92,224,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92,224,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.9), transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.9), transparent 80%);
+}
+
+body::after{
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection{ background: var(--cyan); color: var(--bg); }
+
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+::-webkit-scrollbar-track{ background: var(--bg-1); }
+::-webkit-scrollbar-thumb{ background: var(--line); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--cyan-dim); }
