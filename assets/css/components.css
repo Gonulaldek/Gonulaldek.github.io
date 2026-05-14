@@ -791,3 +791,59 @@ footer.statusbar .ok{ color: var(--green); }
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .reveal.visible{ opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   ADDITIONS — completed status badge + language toggle
+   ============================================================ */
+
+/* Completed status (used by Project Inspector CLI after V1) */
+.pc-header .status.completed{ color: var(--green); }
+.pc-header .status.completed .dot{
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* Nav actions wrapper holds the nav links + language toggle on the right side */
+nav.mainnav .nav-actions{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Language toggle (TR / EN) */
+.lang-toggle{
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(13,19,34,0.5);
+}
+.lang-btn{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 7px 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  line-height: 1;
+}
+.lang-btn + .lang-btn{ border-left: 1px solid var(--line); }
+.lang-btn:hover{
+  color: var(--cyan);
+  background: rgba(92,224,255,0.06);
+}
+.lang-btn.active{
+  background: var(--cyan);
+  color: var(--bg);
+  font-weight: 700;
+}
+.lang-btn.active:hover{
+  background: var(--cyan);
+  color: var(--bg);
+}

@@ -1,14 +1,25 @@
 /* ============================================================
    render.js — SVG preview templates and DOM rendering functions
    Depends on data.js (window.portfolioData)
+   All public renderers take a `lang` string ('tr' | 'en').
    ============================================================ */
 
 /* --------------------------------------------------------
-   SVG PREVIEW TEMPLATES
-   Each project references one of these via its `preview` key.
-   Project previews use viewBox="0 0 400 300" for consistency.
+   Internal helper: pick the right value from a translatable
+   field. Accepts:
+     - { tr, en } object → returns object[lang], falls back to .tr
+     - plain string      → returns it as-is
+     - undefined / null  → returns ''
    -------------------------------------------------------- */
+function t(field, lang) {
+  if (field == null) return '';
+  if (typeof field === 'string') return field;
+  return field[lang] != null ? field[lang] : (field.tr || '');
+}
 
+/* --------------------------------------------------------
+   SVG PREVIEW TEMPLATES
+   -------------------------------------------------------- */
 const previews = {
 
   iris: `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
@@ -80,16 +91,16 @@ const previews = {
       <text x="92" y="124" fill="#8d99b3">(ok)</text>
       <text x="32" y="140" fill="#7ee787">• test</text>
       <text x="84" y="140" fill="#8d99b3">(ok)</text>
-      <text x="32" y="156" fill="#ffb84d">• lint</text>
-      <text x="84" y="156" fill="#ffb84d">(warn)</text>
-      <text x="16" y="180" fill="#8d99b3">dependencies:</text>
-      <text x="32" y="196" fill="#e8ecf3">runtime · </text>
-      <text x="100" y="196" fill="#5ce0ff">24 packages</text>
-      <text x="32" y="212" fill="#e8ecf3">dev · </text>
-      <text x="78" y="212" fill="#5ce0ff">12 packages</text>
-      <text x="16" y="236" fill="#ffb84d">▸ TODO/FIXME scan ready</text>
+      <text x="32" y="156" fill="#7ee787">• lint</text>
+      <text x="84" y="156" fill="#7ee787">(ok)</text>
+      <text x="16" y="180" fill="#8d99b3">files / folders:</text>
+      <text x="32" y="196" fill="#e8ecf3">files · </text>
+      <text x="92" y="196" fill="#5ce0ff">42</text>
+      <text x="32" y="212" fill="#e8ecf3">folders · </text>
+      <text x="110" y="212" fill="#5ce0ff">8</text>
+      <text x="16" y="236" fill="#ffb84d">▸ TODO / FIXME · 5</text>
       <text x="16" y="262" fill="#22304d">━━━━━━━━━━━━━━━━━━━━━</text>
-      <text x="16" y="282" fill="#5a6584">[draft output]</text>
+      <text x="16" y="282" fill="#7ee787">[ v1 ready ]</text>
     </g>
   </svg>`,
 
@@ -191,7 +202,6 @@ const previews = {
     <rect x="14" y="28" width="50" height="3" fill="#5ce0ff"/>
   </svg>`,
 
-  /* Used by the additional-background band */
   pentagon: `<svg viewBox="-50 -50 100 100" xmlns="http://www.w3.org/2000/svg">
     <g stroke="#8d99b3" stroke-width="1" fill="none">
       <polygon points="0,-30 26,-9 16,21 -16,21 -26,-9"/>
@@ -211,15 +221,36 @@ const previews = {
 };
 
 /* --------------------------------------------------------
-   RENDER FUNCTIONS
+   RENDER STATIC TEXTS
+   Walks all elements with [data-i18n] and updates their innerHTML
+   from staticTexts[lang]. Also sets <html lang="..">.
    -------------------------------------------------------- */
+function renderStaticTexts(staticTexts, lang) {
+  if (!staticTexts) return;
+  const texts = staticTexts[lang] || staticTexts.tr;
+  if (!texts) return;
 
-function renderProjectCard(p) {
+  document.documentElement.lang = lang;
+
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (key && texts[key] != null) {
+      el.innerHTML = texts[key];
+    }
+  });
+}
+
+/* --------------------------------------------------------
+   RENDER PROJECT CARD
+   -------------------------------------------------------- */
+function renderProjectCard(p, lang, statusLabels, pendingFallback) {
   const linksHTML = p.links.map(link => {
     if (link.pending) {
-      return `<span class="pending">${link.label}</span>`;
+      const label = t(link.label, lang) || pendingFallback;
+      return `<span class="pending">${label}</span>`;
     }
-    return `<a href="${link.url}" target="_blank" rel="noopener">${link.label}</a>`;
+    return `<a href="${link.url}" target="_blank" rel="noopener">${t(link.label, lang)}</a>`;
   }).join('');
 
   const stackHTML = p.stack.map(s => `<span>${s}</span>`).join('');
@@ -233,12 +264,16 @@ function renderProjectCard(p) {
   const devOverlay = p.dev ? '<div class="dev-overlay">DEV BUILD</div>' : '';
   const svg = previews[p.preview] || '';
 
+  const statusLabel = (statusLabels && statusLabels[p.statusClass])
+    ? t(statusLabels[p.statusClass], lang)
+    : p.statusClass;
+
   return `
 <article class="${cardClasses.join(' ')}">
   <div class="pc-header">
     <span class="id">${p.id}</span>
     <span class="filename">${p.filename}<span class="ext">${p.ext}</span></span>
-    <span class="status ${p.status.class}"><span class="dot"></span> ${p.status.label}</span>
+    <span class="status ${p.statusClass}"><span class="dot"></span> ${statusLabel}</span>
   </div>
   <div class="${bodyClasses.join(' ')}">
     <div class="pc-preview">
@@ -246,9 +281,9 @@ function renderProjectCard(p) {
       ${svg}
     </div>
     <div class="pc-info">
-      <h3>${p.title}</h3>
-      <div class="role">${p.role}</div>
-      <p class="desc">${p.description}</p>
+      <h3>${t(p.title, lang)}</h3>
+      <div class="role">${t(p.role, lang)}</div>
+      <p class="desc">${t(p.description, lang)}</p>
       <div class="stack">${stackHTML}</div>
       <div class="links">${linksHTML}</div>
     </div>
@@ -256,46 +291,58 @@ function renderProjectCard(p) {
 </article>`;
 }
 
-function renderProjects(containerEl, projects) {
+/* --------------------------------------------------------
+   RENDER PROJECTS into a container
+   -------------------------------------------------------- */
+function renderProjects(containerEl, projects, lang, statusLabels, pendingFallback) {
   if (!containerEl) return;
-  containerEl.innerHTML = projects.map(renderProjectCard).join('\n');
+  containerEl.innerHTML = projects
+    .map(p => renderProjectCard(p, lang, statusLabels, pendingFallback))
+    .join('\n');
 }
 
-function renderExtraBand(containerEl, data) {
+/* --------------------------------------------------------
+   RENDER ADDITIONAL BAND
+   -------------------------------------------------------- */
+function renderExtraBand(containerEl, data, lang) {
   if (!containerEl) return;
   const svg = previews[data.icon] || '';
-  const tagsHTML = data.tags.map(t => `<span>${t}</span>`).join('');
+  const tagsHTML = data.tags.map(tag => `<span>${tag}</span>`).join('');
   containerEl.innerHTML = `
 <div class="extra-band reveal">
   <div class="ico-box">${svg}</div>
   <div class="txt">
-    <h4>${data.title} <span class="tag">${data.tag}</span></h4>
-    <p>${data.description}</p>
+    <h4>${t(data.title, lang)} <span class="tag">${t(data.tag, lang)}</span></h4>
+    <p>${t(data.description, lang)}</p>
   </div>
   <div class="meta-tags">${tagsHTML}</div>
 </div>`;
 }
 
-function renderStack(containerEl, panels) {
+/* --------------------------------------------------------
+   RENDER STACK PANELS
+   -------------------------------------------------------- */
+function renderStack(containerEl, panels, lang) {
   if (!containerEl) return;
   containerEl.classList.add('reveal');
   containerEl.innerHTML = panels.map(panel => {
     const itemsHTML = panel.items.map(item => {
-      const badge = item.level
-        ? ` <span class="lv ${item.class || ''}">${item.level}</span>`
+      const level = t(item.level, lang);
+      const badge = level
+        ? ` <span class="lv ${item.class || ''}">${level}</span>`
         : '';
       return `<li>${item.name}${badge}</li>`;
     }).join('');
     return `
 <div class="stack-panel">
-  <div class="ph"><div class="ico"></div>${panel.title} <span class="count">${panel.items.length} items</span></div>
+  <div class="ph"><div class="ico"></div>${t(panel.title, lang)} <span class="count">${panel.items.length} items</span></div>
   <ul>${itemsHTML}</ul>
 </div>`;
   }).join('\n');
 }
 
-
-// Expose render functions for classic script loading.
-window.renderProjects = renderProjects;
-window.renderExtraBand = renderExtraBand;
-window.renderStack = renderStack;
+/* Expose render functions on window so main.js can call them via window.* */
+window.renderStaticTexts = renderStaticTexts;
+window.renderProjects    = renderProjects;
+window.renderExtraBand   = renderExtraBand;
+window.renderStack       = renderStack;

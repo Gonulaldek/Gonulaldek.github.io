@@ -36,18 +36,24 @@
   <div class="path">
     <span class="hide-sm">~ / portfolio /</span> <span class="accent">melih_gonulal</span><span class="sep">.</span><span style="color:var(--orange)">dev</span>
   </div>
-  <div class="live"><span class="pulse"></span> ONLINE</div>
+  <div class="live"><span class="pulse"></span> <span data-i18n="tbLive">ONLINE</span></div>
 </div>
 
 <!-- NAV -->
 <nav class="mainnav">
   <a href="#top" class="logo">Melih<span class="surname">.Gönülal</span></a>
-  <ul>
-    <li><a href="#works"><span class="br">01_</span>İŞLER</a></li>
-    <li><a href="#stack"><span class="br">02_</span>STACK</a></li>
-    <li><a href="#about"><span class="br">03_</span>HAKKIMDA</a></li>
-    <li><a href="#contact"><span class="br">04_</span>İLETİŞİM</a></li>
-  </ul>
+  <div class="nav-actions">
+    <ul>
+      <li><a href="#works"   data-i18n="navWorks"><span class="br">01_</span>İŞLER</a></li>
+      <li><a href="#stack"   data-i18n="navStack"><span class="br">02_</span>STACK</a></li>
+      <li><a href="#about"   data-i18n="navAbout"><span class="br">03_</span>HAKKIMDA</a></li>
+      <li><a href="#contact" data-i18n="navContact"><span class="br">04_</span>İLETİŞİM</a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="tr" aria-pressed="true">TR</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
 </nav>
 
 <div id="top"></div>
@@ -57,19 +63,19 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="label">JUNIOR SOFTWARE DEVELOPER CANDIDATE</div>
-        <h1>Kod yazar,<br>problemi <span class="accent">ürüne</span><br>çeviririm.</h1>
-        <p class="desc">C#, TypeScript ve JavaScript ile <strong>otomasyon araçları</strong>, <strong>yerel agent prototipleri</strong> ve <strong>web tabanlı uygulamalar</strong> geliştiriyorum. Şu anda yazılım geliştirme alanında staj fırsatları arıyorum ve projelerimi GitHub üzerinde düzenli, açıklanabilir ve çalıştırılabilir şekilde sunmaya çalışıyorum.</p>
+        <div class="label" data-i18n="heroLabel">JUNIOR SOFTWARE DEVELOPER CANDIDATE</div>
+        <h1 data-i18n="heroTitle">Küçük ölçekli yazılım araçları ve prototipler <span class="accent">geliştiriyorum</span>.</h1>
+        <p class="desc" data-i18n="heroDesc">C#, TypeScript ve JavaScript ile <strong>komut satırı araçları</strong>, <strong>otomasyon prototipleri</strong> ve <strong>pratik yazılım uygulamaları</strong> geliştiriyorum. Şu anda yazılım geliştirme alanında staj fırsatları arıyorum.</p>
 
         <div class="hero-meta">
-          <div class="cell"><div class="k">Lokasyon</div><div class="v">Balıkesir, TR</div></div>
-          <div class="cell"><div class="k">Durum</div><div class="v"><span class="dot">●</span> STAJ ARIYOR</div></div>
-          <div class="cell"><div class="k">Stack</div><div class="v">C# / TS / JS</div></div>
+          <div class="cell"><div class="k" data-i18n="heroMetaKLocation">Lokasyon</div><div class="v" data-i18n="heroMetaVLocation">Balıkesir, TR</div></div>
+          <div class="cell"><div class="k" data-i18n="heroMetaKStatus">Durum</div><div class="v" data-i18n="heroMetaVStatus"><span class="dot">●</span> STAJ ARIYOR</div></div>
+          <div class="cell"><div class="k" data-i18n="heroMetaKStack">Stack</div><div class="v" data-i18n="heroMetaVStack">C# / TS / JS</div></div>
         </div>
 
         <div class="hero-cta">
-          <a href="#works" class="btn primary">Projelerimi İncele <span class="arrow">→</span></a>
-          <a href="#contact" class="btn ghost">İletişime Geç</a>
+          <a href="#works" class="btn primary" data-i18n="heroCtaPrimary">Projelerimi İncele <span class="arrow">→</span></a>
+          <a href="#contact" class="btn ghost" data-i18n="heroCtaGhost">İletişime Geç</a>
         </div>
       </div>
 
@@ -146,12 +152,12 @@
   <div class="wrap">
     <div class="sec-header has-sub">
       <div class="left">
-        <div class="num">01</div>
-        <h2>Featured <span class="accent">Projects</span></h2>
+        <div class="num" data-i18n="worksNum">01</div>
+        <h2 data-i18n="worksTitle">Featured <span class="accent">Projects</span></h2>
       </div>
-      <div class="right">2 ITEMS</div>
+      <div class="right" data-i18n="worksRight">3 ITEMS</div>
     </div>
-    <p class="sec-subtitle">Projects with existing code or working prototype</p>
+    <p class="sec-subtitle" data-i18n="worksSubtitle">Projects with existing code or working prototype</p>
     <div class="projects" id="featured-projects"><!-- cards injected by main.js --></div>
   </div>
 </section>
@@ -161,12 +167,12 @@
   <div class="wrap">
     <div class="sec-header has-sub">
       <div class="left">
-        <div class="num">02</div>
-        <h2>In <span class="accent">Development</span></h2>
+        <div class="num" data-i18n="inDevNum">02</div>
+        <h2 data-i18n="inDevTitle">In <span class="accent">Development</span></h2>
       </div>
-      <div class="right">3 ITEMS</div>
+      <div class="right" data-i18n="inDevRight">2 ITEMS</div>
     </div>
-    <p class="sec-subtitle">Small software projects currently being built for portfolio completion</p>
+    <p class="sec-subtitle" data-i18n="inDevSubtitle">Small software projects currently being built for portfolio completion</p>
     <div class="projects" id="in-dev-projects"><!-- cards injected by main.js --></div>
   </div>
 </section>
@@ -176,12 +182,12 @@
   <div class="wrap">
     <div class="sec-header has-sub">
       <div class="left">
-        <div class="num dim">03</div>
-        <h2 class="small">Additional <span class="accent">Background</span></h2>
+        <div class="num dim" data-i18n="extrasNum">03</div>
+        <h2 class="small" data-i18n="extrasTitle">Additional <span class="accent">Background</span></h2>
       </div>
-      <div class="right">SIDE SKILLS</div>
+      <div class="right" data-i18n="extrasRight">SIDE SKILLS</div>
     </div>
-    <p class="sec-subtitle">Supporting skills outside the primary software focus</p>
+    <p class="sec-subtitle" data-i18n="extrasSubtitle">Supporting skills outside the primary software focus</p>
     <div id="extras-container"><!-- band injected by main.js --></div>
   </div>
 </section>
@@ -191,10 +197,10 @@
   <div class="wrap">
     <div class="sec-header">
       <div class="left">
-        <div class="num">04</div>
-        <h2>Teknik <span class="accent">Stack</span></h2>
+        <div class="num" data-i18n="stackNum">04</div>
+        <h2 data-i18n="stackTitle">Teknik <span class="accent">Stack</span></h2>
       </div>
-      <div class="right">CAPABILITIES</div>
+      <div class="right" data-i18n="stackRight">CAPABILITIES</div>
     </div>
     <div class="stack-wrap" id="stack-container"><!-- panels injected by main.js --></div>
   </div>
@@ -205,31 +211,31 @@
   <div class="wrap">
     <div class="sec-header">
       <div class="left">
-        <div class="num">05</div>
-        <h2>Hakkımda</h2>
+        <div class="num" data-i18n="aboutNum">05</div>
+        <h2 data-i18n="aboutTitle">Hakkımda</h2>
       </div>
-      <div class="right">PROFILE</div>
+      <div class="right" data-i18n="aboutRight">PROFILE</div>
     </div>
 
     <div class="about-wrap">
       <div class="about-card reveal">
-        <div class="head"><span class="accent">[</span> profile.json <span class="accent">]</span></div>
+        <div class="head" data-i18n="aboutCardHead"><span class="accent">[</span> profile.json <span class="accent">]</span></div>
         <div class="body">
-          <div class="about-row"><span class="k">isim</span><span class="v">Melih Gönülal</span></div>
-          <div class="about-row"><span class="k">rol</span><span class="v"><span class="hi">Junior Software Dev</span></span></div>
-          <div class="about-row"><span class="k">okul</span><span class="v">Amasya Üniversitesi</span></div>
-          <div class="about-row"><span class="k">bölüm</span><span class="v">BDTA · 2024 →</span></div>
-          <div class="about-row"><span class="k">lokasyon</span><span class="v">Balıkesir / Gönen, TR</span></div>
-          <div class="about-row"><span class="k">diller</span><span class="v">TR · EN <span class="hi">(basic / improving)</span></span></div>
-          <div class="about-row"><span class="k">durum</span><span class="v"><span class="hi">● staj arıyor</span></span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKName">isim</span><span class="v" data-i18n="profileVName">Melih Gönülal</span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKRole">rol</span><span class="v" data-i18n="profileVRole"><span class="hi">Junior Software Dev</span></span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKSchool">okul</span><span class="v" data-i18n="profileVSchool">Amasya Üniversitesi</span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKDept">bölüm</span><span class="v" data-i18n="profileVDept">BDTA · 2024 →</span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKLoc">lokasyon</span><span class="v" data-i18n="profileVLoc">Balıkesir / Gönen, TR</span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKLangs">diller</span><span class="v" data-i18n="profileVLangs">TR · EN <span class="hi">(basic / improving)</span></span></div>
+          <div class="about-row"><span class="k" data-i18n="profileKStatus">durum</span><span class="v" data-i18n="profileVStatus"><span class="hi">● staj arıyor</span></span></div>
         </div>
       </div>
 
       <div class="about-text reveal">
-        <h3>Çalışan, açıklanabilir, <span class="accent">çalıştırılabilir</span> projeler üretmeye odaklanıyorum.</h3>
-        <p>Bilgisayar Destekli Tasarım & Animasyon bölümünde okuyan, kendi kendine yazılım geliştirme çalışan bir öğrenciyim. <strong>C#, TypeScript ve JavaScript</strong> ile küçük araçlar ve prototipler yazıyorum — günlük iş akışımı kolaylaştıran CLI uygulamalarından web tabanlı dashboard'lara kadar.</p>
-        <p>Projelerimi <span class="hi">GitHub üzerinde README'leri, çalıştırma talimatlarıyla birlikte</span> düzenli tutmaya özen gösteriyorum. Kullandığım kütüphaneyi neden seçtiğimi, hangi sorunu çözdüğünü ve neyi farklı yapabileceğimi açıklayabilmek benim için kod yazmak kadar önemli.</p>
-        <p>Şu an <strong>junior / intern düzeyinde yazılım pozisyonları</strong> için açığım. Bir ekibin içinde öğrenmeye, kod review almaya ve gerçek bir ürün için katkıda bulunmaya hazırım.</p>
+        <h3 data-i18n="aboutTextHeading">Çalışan, açıklanabilir, <span class="accent">çalıştırılabilir</span> projeler üretmeye odaklanıyorum.</h3>
+        <p data-i18n="aboutP1">Bilgisayar Destekli Tasarım & Animasyon bölümünde okuyan, kendi kendine yazılım geliştirme çalışan bir öğrenciyim. <strong>C#, TypeScript ve JavaScript</strong> ile küçük araçlar ve prototipler yazıyorum — günlük iş akışımı kolaylaştıran CLI uygulamalarından web tabanlı dashboard'lara kadar.</p>
+        <p data-i18n="aboutP2">Projelerimi <span class="hi">GitHub üzerinde README'leri, çalıştırma talimatlarıyla birlikte</span> düzenli tutmaya özen gösteriyorum. Kullandığım kütüphaneyi neden seçtiğimi, hangi sorunu çözdüğünü ve neyi farklı yapabileceğimi açıklayabilmek benim için kod yazmak kadar önemli.</p>
+        <p data-i18n="aboutP3">Şu an <strong>junior / intern düzeyinde yazılım pozisyonları</strong> için açığım. Bir ekibin içinde öğrenmeye, kod review almaya ve gerçek bir ürün için katkıda bulunmaya hazırım.</p>
       </div>
     </div>
   </div>
@@ -240,22 +246,22 @@
   <div class="wrap">
     <div class="sec-header">
       <div class="left">
-        <div class="num">06</div>
-        <h2><span class="accent">İletişim</span></h2>
+        <div class="num" data-i18n="contactNum">06</div>
+        <h2 data-i18n="contactTitle"><span class="accent">İletişim</span></h2>
       </div>
-      <div class="right">GET IN TOUCH</div>
+      <div class="right" data-i18n="contactRight">GET IN TOUCH</div>
     </div>
 
     <div class="contact-block reveal">
-      <div class="head"><span class="blink"></span> OPEN TO OPPORTUNITIES</div>
+      <div class="head"><span class="blink"></span> <span data-i18n="contactHead">OPEN TO OPPORTUNITIES</span></div>
       <div class="contact-inner">
-        <h2>Staj fırsatları için<br><span class="accent">konuşalım.</span></h2>
-        <p class="sub">Yazılım ekipleri, junior / intern pozisyonları veya bir projenizde katkı sağlayabileceğim her şey için bana yazabilirsiniz. CV'mi ek olarak iletebilirim.</p>
+        <h2 data-i18n="contactInnerTitle">Staj fırsatları için<br><span class="accent">konuşalım.</span></h2>
+        <p class="sub" data-i18n="contactSub">Yazılım ekipleri, junior / intern pozisyonları veya bir projenizde katkı sağlayabileceğim her şey için bana yazabilirsiniz. CV'mi ek olarak iletebilirim.</p>
         <div class="contact-actions">
           <a href="mailto:gonulalmelih@gmail.com" class="mail-btn">
             gonulalmelih@gmail.com <span style="font-family:inherit">→</span>
           </a>
-          <span class="cv-pending">CV / PDF · Coming Soon</span>
+          <span class="cv-pending" data-i18n="cvPending">CV / PDF · Coming Soon</span>
         </div>
         <div class="contact-socials">
           <a href="https://github.com/Gonulaldek" target="_blank" rel="noopener">GITHUB</a>
@@ -268,11 +274,11 @@
 
 <footer class="statusbar">
   <div class="left">
-    <span><span class="ok">●</span> ALL SYSTEMS OPERATIONAL</span>
+    <span data-i18n="footerLeft"><span class="ok">●</span> ALL SYSTEMS OPERATIONAL</span>
     <span class="hide-sm">v 1.0</span>
   </div>
   <div class="right">
-    <span>© <span class="hi">2026</span> · MELIH GÖNÜLAL</span>
+    <span data-i18n="footerRight">© <span class="hi">2026</span> · MELIH GÖNÜLAL</span>
   </div>
 </footer>
 

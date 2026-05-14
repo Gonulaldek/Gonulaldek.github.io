@@ -177,3 +177,8 @@ Personal portfolio — all rights reserved.
 
 **Status:** Active — currently being used for junior software developer internship applications.
 **Maintainer:** Melih Gönülal · [github.com/Gonulaldek](https://github.com/Gonulaldek)
+
+## Language Toggle
+
+The site supports Turkish and English content switching without a page reload. The selected language is stored in `localStorage` under the key `portfolio_lang`. Main content lives in `assets/js/data.js`, while rendering is handled by `assets/js/render.js` and initialization by `assets/js/main.js`.
+

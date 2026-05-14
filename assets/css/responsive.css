@@ -46,9 +46,17 @@
 
   footer.statusbar{ padding: 12px 18px; font-size: 9px; }
   footer.statusbar .left, footer.statusbar .right{ gap: 10px; flex-wrap: wrap; }
+
+  /* Nav actions wrapper + lang toggle adjustments */
+  nav.mainnav .nav-actions{ gap: 8px; }
+  .lang-btn{ font-size: 9px; padding: 5px 8px; letter-spacing: 0.16em; }
 }
 
 @media (max-width: 500px){
   .hero-cta{ flex-direction: column; }
   .btn{ width: 100%; justify-content: center; }
+
+  /* On very small screens, hide the "01_" prefix in nav so everything fits */
+  nav.mainnav a .br{ display: none; }
+  nav.mainnav .nav-actions{ gap: 6px; }
 }
