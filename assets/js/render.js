@@ -150,10 +150,10 @@ const previews = {
     </g>
     <line x1="0" y1="240" x2="400" y2="240" stroke="#22304d"/>
     <g font-family="JetBrains Mono, monospace" font-size="9" fill="#8d99b3" letter-spacing="1">
-      <text x="20" y="262">PLANNED VIEW · <tspan fill="#e8ecf3">mock data</tspan></text>
-      <text x="200" y="262">STORAGE · <tspan fill="#5ce0ff">localStorage</tspan></text>
+      <text x="20" y="262">TABLE VIEW · <tspan fill="#e8ecf3">JSON file</tspan></text>
+      <text x="200" y="262">STORAGE · <tspan fill="#5ce0ff">applications.json</tspan></text>
     </g>
-    <text x="20" y="286" font-family="JetBrains Mono, monospace" font-size="8" fill="#5a6584" letter-spacing="1.5">[ DRAFT.PROTOTYPE ]</text>
+    <text x="20" y="286" font-family="JetBrains Mono, monospace" font-size="8" fill="#7ee787" letter-spacing="1.5">[ v1 ready ]</text>
   </svg>`,
 
   motion: `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
@@ -331,7 +331,7 @@ function renderStack(containerEl, panels, lang) {
       const badge = level
         ? ` <span class="lv ${item.class || ''}">${level}</span>`
         : '';
-      return `<li>${item.name}${badge}</li>`;
+      return `<li>${t(item.name, lang)}${badge}</li>`;
     }).join('');
     return `
 <div class="stack-panel">

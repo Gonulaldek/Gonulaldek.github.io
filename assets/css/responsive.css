@@ -3,6 +3,20 @@
    Loaded last so it overrides base/layout/components
    ============================================================ */
 
+/* Large laptops — reduce gap + slight grid rebalance */
+@media (max-width: 1280px){
+  .hero-grid{ gap: 48px; }
+  html[lang="tr"] .hero h1{ font-size: clamp(36px, 5vw, 58px); }
+  html[lang="en"] .hero h1{ font-size: clamp(32px, 4.4vw, 50px); }
+}
+
+/* Small laptops / tablets in landscape — tighter grid */
+@media (max-width: 1024px){
+  .hero-grid{ grid-template-columns: 1.3fr 1fr; gap: 40px; }
+  html[lang="tr"] .hero h1{ font-size: clamp(34px, 4.8vw, 52px); }
+  html[lang="en"] .hero h1{ font-size: clamp(30px, 4.2vw, 44px); }
+}
+
 @media (max-width: 960px){
   .titlebar{ padding: 0 14px; gap: 10px; }
   .titlebar .path{ font-size: 10px; }
@@ -22,6 +36,15 @@
   .hero-meta{ grid-template-columns: 1fr; max-width: 100%; }
   .hero-meta .cell{ border-right: none; border-bottom: 1px solid var(--line); }
   .hero-meta .cell:last-child{ border-bottom: none; }
+
+  /* On mobile (single column) release the title max-width so it can use the row */
+  .hero h1,
+  html[lang="tr"] .hero h1,
+  html[lang="en"] .hero h1{
+    max-width: none;
+  }
+  html[lang="tr"] .hero h1{ font-size: clamp(32px, 6.2vw, 44px); }
+  html[lang="en"] .hero h1{ font-size: clamp(28px, 5.6vw, 40px); }
 
   section{ padding: 70px 0; }
   section.tight-top{ padding-top: 0; }
@@ -59,4 +82,9 @@
   /* On very small screens, hide the "01_" prefix in nav so everything fits */
   nav.mainnav a .br{ display: none; }
   nav.mainnav .nav-actions{ gap: 6px; }
+
+  /* Tighten hero on phones */
+  html[lang="tr"] .hero h1{ font-size: clamp(28px, 7.4vw, 36px); }
+  html[lang="en"] .hero h1{ font-size: clamp(26px, 6.6vw, 32px); }
+  .hero .desc{ font-size: 15px; line-height: 1.6; }
 }

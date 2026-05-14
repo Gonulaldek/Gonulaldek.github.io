@@ -44,13 +44,13 @@ const portfolioData = {
 
       worksNum:      '01',
       worksTitle:    'Öne Çıkan <span class="accent">Projeler</span>',
-      worksRight:    '3 PROJE',
+      worksRight:    '4 PROJE',
       worksSubtitle: 'Mevcut kodu olan veya çalışan prototip projeler',
 
       inDevNum:      '02',
       inDevTitle:    'Geliştirme <span class="accent">Aşamasında</span>',
-      inDevRight:    '2 PROJE',
-      inDevSubtitle: 'Portfolyo tamamlama için şu anda geliştirilen küçük yazılım projeleri',
+      inDevRight:    '1 PROJE',
+      inDevSubtitle: 'Şu anda aktif olarak geliştirilen veya public repo hazırlığı devam eden proje',
 
       extrasNum:      '03',
       extrasTitle:    'Ek <span class="accent">Geçmiş</span>',
@@ -120,13 +120,13 @@ const portfolioData = {
 
       worksNum:      '01',
       worksTitle:    'Featured <span class="accent">Projects</span>',
-      worksRight:    '3 ITEMS',
+      worksRight:    '4 ITEMS',
       worksSubtitle: 'Projects with existing code or working prototype',
 
       inDevNum:      '02',
       inDevTitle:    'In <span class="accent">Development</span>',
-      inDevRight:    '2 ITEMS',
-      inDevSubtitle: 'Small software projects currently being built for portfolio completion',
+      inDevRight:    '1 ITEM',
+      inDevSubtitle: 'Project currently in active development or waiting for public repo preparation',
 
       extrasNum:      '03',
       extrasTitle:    'Additional <span class="accent">Background</span>',
@@ -271,35 +271,35 @@ const portfolioData = {
         preview: 'inspector',
         flip: false,
         dev: false
-      }
-    ],
-
-    inDevelopment: [
+      },
       {
         id: 'PRJ_004',
-        filename: 'application_tracker',
-        ext: '.html',
-        statusClass: 'in-dev',
+        filename: 'internship_tracker',
+        ext: '.cs',
+        statusClass: 'completed',
         title: {
           tr: 'Staj Başvuru <span class="accent">Takipçisi</span>',
           en: 'Internship Application <span class="accent">Tracker</span>'
         },
         role: {
-          tr: 'Planlanan Web Uygulaması',
-          en: 'Planned Web Application'
+          tr: 'C# / Windows Forms · JSON Kayıt Sistemi',
+          en: 'C# / Windows Forms · JSON Storage'
         },
         description: {
-          tr: 'Staj başvurularını takip etmek için kendim için geliştirmeye başladığım tek sayfalık dashboard. Hedef: şirket, pozisyon, durum (gönderildi / cevap bekleniyor / mülakat / sonuç) ve tarih takibi yapması; verileri localStorage üzerinde tutması. Şu an UI taslağı ve veri modeli üzerinde çalışıyorum.',
-          en: 'A single-page dashboard I started building for myself to track internship applications. Goal: track company, role, status (sent / awaiting reply / interview / result) and dates, with data stored in localStorage. Currently working on the UI draft and data model.'
+          tr: 'C# ve Windows Forms ile geliştirilmiş küçük bir masaüstü uygulaması. Staj başvurularını şirket, pozisyon, tarih, durum ve not bilgileriyle takip eder. Verileri local JSON dosyasına kaydeder, uygulama yeniden açıldığında kayıtları geri yükler ve durum filtresiyle listeleme yapar.',
+          en: 'A small C# Windows Forms desktop application for tracking internship applications by company, position, date, status, and notes. It saves data to a local JSON file, reloads records on startup, and supports filtering applications by status.'
         },
-        stack: ['JavaScript', 'HTML/CSS', 'localStorage'],
+        stack: ['C#', '.NET 8', 'Windows Forms', 'JSON'],
         links: [
-          { pending: true }
+          { label: { tr: 'GitHub Repo', en: 'GitHub Repo' }, url: 'https://github.com/Gonulaldek/internship-application-tracker' }
         ],
         preview: 'tracker',
-        flip: false,
-        dev: true
-      },
+        flip: true,
+        dev: false
+      }
+    ],
+
+    inDevelopment: [
       {
         id: 'PRJ_005',
         filename: 'motion_analysis',
@@ -342,10 +342,10 @@ const portfolioData = {
       en: 'side area'
     },
     description: {
-      tr: "Eğitim aldığım Bilgisayar Destekli Tasarım & Animasyon bölümü kapsamında Blender ve 3ds Max üzerinde modelleme, ayrıca Unreal Engine 5 pipeline'ına yönelik mesh hazırlama çalışmaları yapıyorum. Yazılım geliştirme odağımı destekleyen, görsel iletişim ve teknik problem çözme tarafında geliştirici bir yan beceri olarak değerlendiriyorum.",
-      en: 'As part of my Computer-Aided Design & Animation major, I work on modeling in Blender and 3ds Max, plus mesh preparation for the Unreal Engine 5 pipeline. I treat it as a supporting side skill that strengthens my visual communication and technical problem-solving — alongside my main software focus.'
+      tr: "Eğitim aldığım Bilgisayar Destekli Tasarım & Animasyon bölümü kapsamında Blender ve 3D modelleme üzerine çalışmalar yapıyorum. Ayrıca Unreal Engine 5 pipeline'ına yönelik mesh hazırlama ve görsel üretim süreçleriyle ilgileniyorum.",
+      en: 'As part of my Computer-Aided Design & Animation background, I work on Blender and 3D modeling. I also explore mesh preparation and visual production workflows for Unreal Engine 5.'
     },
-    tags: ['Blender', '3ds Max', 'UE5']
+    tags: ['Blender', '3D Modeling', 'UE5']
   },
 
   /* --------------------------------------------------------
@@ -380,7 +380,7 @@ const portfolioData = {
       title: { tr: 'YAN BECERİLER', en: 'SIDE SKILLS' },
       items: [
         { name: 'Blender',      level: { tr: 'Pratik', en: 'Practical' }, class: 'high' },
-        { name: '3ds Max',      level: { tr: 'Temel',  en: 'Basic'     }, class: 'mid'  },
+        { name: { tr: '3D Modelleme', en: '3D Modeling' }, level: { tr: 'Pratik', en: 'Practical' }, class: 'high' },
         { name: 'AutoCAD',      level: { tr: 'Temel',  en: 'Basic'     }, class: 'mid'  },
         { name: 'Photoshop',    level: { tr: 'Temel',  en: 'Basic'     }, class: 'mid'  },
         { name: 'Premiere Pro', level: { tr: 'Temel',  en: 'Basic'     }, class: 'mid'  }

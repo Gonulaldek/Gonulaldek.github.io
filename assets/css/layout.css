@@ -95,8 +95,8 @@ section.tight-top{ padding-top: 0; }
 }
 .hero-grid{
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 56px;
   align-items: center;
   width: 100%;
 }
@@ -120,11 +120,13 @@ section.tight-top{ padding-top: 0; }
 .hero h1{
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: clamp(44px, 7vw, 88px);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-size: clamp(36px, 5.2vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   margin-bottom: 28px;
   color: var(--text);
+  max-width: 14ch;
+  text-wrap: balance;
 }
 .hero h1 .accent{
   color: var(--cyan);

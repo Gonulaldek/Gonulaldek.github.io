@@ -847,3 +847,22 @@ nav.mainnav .nav-actions{
   background: var(--cyan);
   color: var(--bg);
 }
+
+/* ============================================================
+   HERO TITLE — per-language scale
+   <html lang="..."> is set by main.js on language switch.
+   Default rule in layout.css covers the in-between / unknown case;
+   these refine it for TR vs EN to keep both visually balanced.
+   ============================================================ */
+html[lang="tr"] .hero h1{
+  font-size: clamp(38px, 5.4vw, 64px);
+  max-width: 14ch;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+}
+html[lang="en"] .hero h1{
+  font-size: clamp(34px, 4.7vw, 54px);
+  max-width: 14ch;
+  letter-spacing: -0.022em;
+  line-height: 1.06;
+}
