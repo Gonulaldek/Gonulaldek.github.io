@@ -709,25 +709,37 @@ nav.mainnav a .br{ color: var(--cyan); }
   gap: 12px;
   align-items: center;
 }
-.contact-inner .cv-pending{
+.contact-inner .cv-link{
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  border: 1px dashed var(--line);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
   padding: 14px 22px;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  cursor: not-allowed;
-  user-select: none;
-  background: rgba(13,19,34,0.4);
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
-.contact-inner .cv-pending::before{
-  content: '◌';
-  color: var(--text-muted);
+.contact-inner .cv-link:hover{
+  background: var(--cyan);
+  color: var(--bg);
+  box-shadow: 0 0 22px rgba(92,224,255,0.3);
+}
+.contact-inner .cv-link:focus,
+.contact-inner .cv-link:focus-visible{
+  outline: none;
+  background: var(--cyan);
+  color: var(--bg);
+  box-shadow: 0 0 0 3px rgba(92,224,255,0.35), 0 0 22px rgba(92,224,255,0.3);
+}
+.contact-inner .cv-link::before{
+  content: '↓';
+  color: inherit;
   font-size: 13px;
 }
 .contact-socials{

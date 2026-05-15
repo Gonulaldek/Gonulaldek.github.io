@@ -90,7 +90,8 @@ const portfolioData = {
       contactHead:   'FIRSATLARA AÇIK',
       contactInnerTitle: 'Staj fırsatları için<br><span class="accent">konuşalım.</span>',
       contactSub:    'Yazılım ekipleri, junior / intern pozisyonları veya bir projenizde katkı sağlayabileceğim her şey için bana yazabilirsiniz. CV\'mi ek olarak iletebilirim.',
-      cvPending:     'CV / PDF · Yakında',
+      cvPending:     'CV / PDF',
+      cvHref: './assets/cv/Melih-Gonulal-CV-TR.pdf',
 
       footerLeft:  '<span class="ok">●</span> TÜM SİSTEMLER ÇALIŞIYOR',
       footerRight: '© <span class="hi">2026</span> · MELIH GÖNÜLAL',
@@ -166,7 +167,8 @@ const portfolioData = {
       contactHead:   'OPEN TO OPPORTUNITIES',
       contactInnerTitle: 'Let\'s talk about<br><span class="accent">internship opportunities.</span>',
       contactSub:    'Feel free to write to me about software teams, junior / intern positions, or anything I could contribute to in one of your projects. I can attach my CV.',
-      cvPending:     'CV / PDF · Coming Soon',
+      cvPending:     'CV / PDF',
+      cvHref: './assets/cv/Melih-Gonulal-CV-EN.pdf',
 
       footerLeft:  '<span class="ok">●</span> ALL SYSTEMS OPERATIONAL',
       footerRight: '© <span class="hi">2026</span> · MELIH GÖNÜLAL',

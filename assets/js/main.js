@@ -36,6 +36,14 @@
     // 1) static texts (nav, hero, headings, profile, footer, ...)
     window.renderStaticTexts(data.staticTexts, lang);
 
+    // 1.1) update CV PDF href according to active language
+    const cvHref = data.staticTexts[lang] && data.staticTexts[lang].cvHref;
+    if (cvHref) {
+      document.querySelectorAll('.cv-link').forEach(link => {
+        link.setAttribute('href', cvHref);
+      });
+    }
+
     // 2) dynamic sections
     const pendingFallback = (data.staticTexts[lang] && data.staticTexts[lang].pendingLinkLabel)
       || 'Repository Coming Soon';
